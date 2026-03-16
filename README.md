@@ -85,18 +85,44 @@ https://engineeringxpert.com/wp-content/uploads/2022/04/26.png
 
 ![image](https://user-images.githubusercontent.com/36288975/233856904-99eb708a-c907-4595-9025-c9dbd89b8879.png)
 
-
-  
-
 ## STM 32 CUBE PROGRAM :
+```
+#include "main.h"
+void SystemClock_Config(void);
+static void MX_GPIO_Init(void);
+int main(void)
+{
+  HAL_Init();
+  SystemClock_Config();
+  MX_GPIO_Init();
+  while (1)
+  {
+    
+  }
+  
+}
+
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+{
+	if(GPIO_Pin==GPIO_PIN_5){
+		HAL_GPIO_TogglePin(GPIOB,GPIO_PIN_5);
+	}
+}
+
+```
 
 
 
 ## Output screen shots of proteus  :
- 
- 
- ## CIRCUIT DIAGRAM (EXPORT THE GRAPHICS TO PDF AND ADD THE SCREEN SHOT HERE): 
- 
+### Interrupt one LED ON:
+<img width="1589" height="1299" alt="image" src="https://github.com/user-attachments/assets/671e90c2-bc7f-4dfd-b0c7-9fac73051481" />
+
+### Interrupt two LED OFF:
+ <img width="1556" height="1245" alt="image" src="https://github.com/user-attachments/assets/ceb3c6e3-7f05-4b02-926b-c5f28e90e97c" />
+
+## CIRCUIT DIAGRAM (EXPORT THE GRAPHICS TO PDF AND ADD THE SCREEN SHOT HERE): 
+ <img width="1146" height="1240" alt="image" src="https://github.com/user-attachments/assets/5a788a2b-a567-4e52-bcf7-791cb14a25ad" />
+
  
 ## Result :
 Interfacing a push button and interrupt genrateion is simulated using proteus 
